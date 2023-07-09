@@ -1,5 +1,6 @@
 let añoNacimiento = Number(prompt('Hola! \n¿Cuál es su año de nacimiento?'))
 
+// validar que se ingrese un numero al prompt
 while (añoNacimiento == null || /\D/.test(añoNacimiento) || añoNacimiento == "") {
     añoNacimiento = prompt("Entre un número válido: ");
 };
@@ -30,11 +31,13 @@ if (edadUsuario < 18) {
 
 } else if (edadUsuario < 110) {
 
+    alert('¡Bienvenido al sitio!');
+
     do {
         let nombreProducto = preguntarProducto();
         let precioProducto = preguntarCosto();
         total = total + precioProducto;
-        alert('¡Felicidades! Por tener 60 años o más no paga Iva! \nEl precio de ' + nombreProducto + ' es de:  ' + '$' + precioProducto + '\n\nEl precio total de su compra es de ' + '$' + total)
+        alert('¡Felicidades! Por ser mayor de 60 años no paga Iva! \nEl precio de ' + nombreProducto + ' es de:  ' + '$' + precioProducto + '\n\nEl precio total de su compra es de ' + '$' + total)
         exit = prompt('¿Desea seguir comprando? \nDigite cualquier tecla para seguir. \nDigite \"ESC\" para salir.').toUpperCase()
     } while (exit != 'ESC')
 
