@@ -5,7 +5,7 @@ function calcEdad(añoActual, añoNacimiento) {
 
 // Preguntar nombre del producto
 function preguntarProducto() {
-    return prompt('¿Qué quiere comprar?');
+    return prompt('¿Qué desea comprar?');
 }
 
 // Preguntar costo del producto
@@ -18,7 +18,7 @@ function calcIva(precioProducto, iva) {
     return precioProducto * iva;
 }
 
-let añoNacimiento = Number(prompt('Hola! \n¿En que año naciste?'))
+let añoNacimiento = Number(prompt('Hola! \n¿Cuál es su año de nacimiento?'))
 let fecha = new Date();
 let añoActual = fecha.getFullYear();
 let edadUsuario = calcEdad(añoActual, añoNacimiento)
@@ -32,7 +32,7 @@ if (edadUsuario < 18) {
     alert('Lo siento, no puedes acceder al sitio.')
 
 } else if (edadUsuario < 60) {
-    alert('Bienvenido al sitio');
+    alert('¡Bienvenido al sitio!');
 
     do {
         let nombreProducto = preguntarProducto();
