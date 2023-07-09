@@ -1,24 +1,9 @@
-// Calcular edad del usuario
-function calcEdad(añoActual, añoNacimiento) {
-    return añoActual - añoNacimiento
-}
-
-// Preguntar nombre del producto
-function preguntarProducto() {
-    return prompt('¿Qué desea comprar?');
-}
-
-// Preguntar costo del producto
-function preguntarCosto() {
-    return Number(prompt('¿Cuál es el costo?'))
-}
-
-// Calcular el Iva
-function calcIva(precioProducto, iva) {
-    return precioProducto * iva;
-}
-
 let añoNacimiento = Number(prompt('Hola! \n¿Cuál es su año de nacimiento?'))
+
+while (añoNacimiento == null || /\D/.test(añoNacimiento) || añoNacimiento == "") {
+    añoNacimiento = prompt("Entre un número válido: ");
+};
+
 let fecha = new Date();
 let añoActual = fecha.getFullYear();
 let edadUsuario = calcEdad(añoActual, añoNacimiento)
@@ -40,18 +25,41 @@ if (edadUsuario < 18) {
         let precioFinal = calcIva(precioProducto, iva) + precioProducto;
         total = total + precioFinal;
         alert('El precio de ' + nombreProducto + ' es de ' + '$' + precioProducto + '\nEl costo + iva es de ' + '$' + precioFinal + '\n\n\n El precio total de su compra es de: ' + '$' + total)
-        exit = prompt('¿Desea seguir comprando? \nDigite cualquier tecla para seguir. \nDigite ESC para salir.').toUpperCase()
+        exit = prompt('¿Desea seguir comprando? \nDigite cualquier tecla para seguir. \nDigite \"ESC\" para salir.').toUpperCase()
     } while (exit != 'ESC')
 
 } else if (edadUsuario < 110) {
 
     do {
+        let nombreProducto = preguntarProducto();
         let precioProducto = preguntarCosto();
         total = total + precioProducto;
-        alert('¡Felicidades, por tener 60 años o más no paga Iva! \nEl precio de su producto es de:  ' + '$' + precioProducto + '\n\nEl precio total de su compra es de ' + '$' + total)
-        exit = prompt('¿Desea seguir comprando? \nDigite cualquier tecla para seguir. \nDigite ESC para salir.').toUpperCase()
+        alert('¡Felicidades! Por tener 60 años o más no paga Iva! \nEl precio de ' + nombreProducto + ' es de:  ' + '$' + precioProducto + '\n\nEl precio total de su compra es de ' + '$' + total)
+        exit = prompt('¿Desea seguir comprando? \nDigite cualquier tecla para seguir. \nDigite \"ESC\" para salir.').toUpperCase()
     } while (exit != 'ESC')
 
 } else {
-    alert('Epaa, ¿Tenés la fuente de la juventud?, pasa el pique.')
+    alert('Epaa, ¿Tenés la fuente de la juventud?. Pasá el pique!')
+}
+
+//FUNCIONES
+
+// Calcular edad del usuario
+function calcEdad(añoActual, añoNacimiento) {
+    return añoActual - añoNacimiento
+}
+
+// Preguntar nombre del producto
+function preguntarProducto() {
+    return prompt('¿Qué desea comprar?', 'Vino');
+}
+
+// Preguntar costo del producto
+function preguntarCosto() {
+    return Number(prompt('¿Cuál es el costo?', 300))
+}
+
+// Calcular el Iva
+function calcIva(precioProducto, iva) {
+    return precioProducto * iva;
 }
