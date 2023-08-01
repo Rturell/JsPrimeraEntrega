@@ -9,8 +9,49 @@ let fecha = new Date();
 let añoActual = fecha.getFullYear();
 let edadUsuario = calcEdad(añoActual, añoNacimiento)
 let iva = 0.21;
-let total= 0;
+let total = 0;
 let exit;
+
+// Objeto Producto
+
+class Producto {
+
+    constructor(id, nombre, precio, description) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.description = description;
+    }
+}
+
+let producto1 = new Producto(0, 'vino', 300, 'lorem5');
+let producto2 = new Producto(1, 'vino especial', 500);
+let producto3 = new Producto(2, 'vino de oferta', 300);
+let producto4 = new Producto(3, 'vino común', 300);
+
+
+// Objeto Carrito
+
+class Carrito {
+
+    constructor(producto, descripcion, cantidad) {
+        this.producto = producto;
+        this.descripcion = descripcion;
+        this.cantidad = cantidad;
+    }
+
+    stock() {
+        this.producto = true;
+    }
+
+    outOfStock() {
+        this.producto = false;
+    }
+
+    // Metodo descripcion
+    // usar toString() ?¿
+}
+
 
 // Condicional para acceder al sitio u obtener descuentos dependiendo de la edad
 if (edadUsuario < 18) {
@@ -24,8 +65,9 @@ if (edadUsuario < 18) {
         let nombreProducto = preguntarProducto();
         let precioProducto = preguntarCosto();
         let precioFinal = calcIva(precioProducto, iva) + precioProducto;
-        total = total + precioFinal;
-        alert('El precio de ' + nombreProducto + ' es de ' + '$' + precioProducto + '\nEl costo + iva es de ' + '$' + precioFinal + '\n\n\n El precio total de su compra es de: ' + '$' + total)
+        // total = total + precioFinal;
+        total += precioFinal;
+        alert(`El precio de ${nombreProducto} es de ${precioProducto} \nEl costo + iva es de $ ${precioFinal} \n\n\n El precio total de su compra es de: ${total}`)
         exit = prompt('¿Desea seguir comprando? \nDigite cualquier tecla para seguir. \nDigite \"ESC\" para salir.').toUpperCase()
     } while (exit != 'ESC')
 
@@ -36,8 +78,8 @@ if (edadUsuario < 18) {
     do {
         let nombreProducto = preguntarProducto();
         let precioProducto = preguntarCosto();
-        total = total + precioProducto;
-        alert('¡Felicidades! Por ser mayor de 60 años no paga Iva! \nEl precio de ' + nombreProducto + ' es de:  ' + '$' + precioProducto + '\n\nEl precio total de su compra es de ' + '$' + total)
+        total += precioProducto;
+        alert(`¡Felicidades! Por ser mayor de 60 años no paga Iva! \nEl precio de ${nombreProducto} es de: $ ${precioProducto} \n\nEl precio total de su compra es de $ ${total}`)
         exit = prompt('¿Desea seguir comprando? \nDigite cualquier tecla para seguir. \nDigite \"ESC\" para salir.').toUpperCase()
     } while (exit != 'ESC')
 

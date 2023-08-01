@@ -1,0 +1,79 @@
+#title {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#alert {
+    text-align: center;
+    width: 300px;
+    margin: auto;
+}
+
+#descuento {
+    text-align: center;
+}
+
+.filter-options {
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+/* Products */
+#products {
+    padding: 50px 0;
+    color: #0E1020;
+}
+
+#products a {
+    text-decoration: none;
+}
+
+#products .card {
+    flex: 1 1 100%;
+    text-align: center;
+    background-color: #F6F5FA;
+    border: 1px solid #F6F5FA;
+    border-radius: 30px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#products .card:hover {
+    transform: scale(1.1);
+}
+
+@media (width > 576px) {
+    #products .card {
+        flex: 1 1 46%;
+    }
+}
+
+@media (width > 768px) {
+    #products .card {
+        flex: 1 1 23%;
+    }
+}
+
+#products .card-title {
+    color: #0E1020;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 8px;
+}
+
+#products .card-text {
+    color: #BBBAC2;
+}
+
+#products .card-price {
+    color: #0E1020;
+    font-weight: bold;
+}
+
+#products .card-img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin: auto;
+}
